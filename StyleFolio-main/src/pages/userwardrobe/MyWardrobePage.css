@@ -1,0 +1,352 @@
+
+.wardrobe-container {
+    padding: 2rem 3rem;
+    font-family: -apple-system, BlinkMacMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.wardrobe-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 1rem;
+}
+
+.wardrobe-header h1 {
+    font-size: 2.2rem;
+    color: #212529;
+    font-weight: 700;
+}
+
+.add-new-btn {
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+.add-new-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+}
+
+.filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.search-input {
+    flex-grow: 1; 
+    min-width: 250px;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.filter-select {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.clothes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.cloth-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cloth-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.cloth-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-content h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    color: #343a40;
+}
+
+.card-details {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+.category-tag {
+    display: inline-block;
+    background-color: #e7f5ff;
+    color: #1c7ed6;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.brand-tag, .season-tag {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin: 4px 0;
+}
+
+.colors-container {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+.color-swatches {
+    display: flex;
+    gap: 6px;
+    margin-top: 5px;
+}
+.color-swatch {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #f1f3f5;
+    cursor: pointer;
+}
+
+.notes-container {
+    margin-top: 10px;
+}
+.notes-text {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #495057;
+    background-color: #f8f9fa;
+    border-left: 3px solid #ced4da;
+    padding: 8px 12px;
+    margin: 5px 0 0 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #f1f3f5;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.icon-btn:hover {
+    background-color: #f1f3f5;
+}
+.edit-btn { color: #fcc419; }
+.delete-btn { color: #fa5252; }
+
+
+.empty-wardrobe {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem;
+    background-color: #fff;
+    border-radius: 12px;
+    border: 2px dashed #e9ecef;
+}
+.empty-wardrobe p {
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+
+.modal-backdrop {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex; justify-content: center; align-items: center; z-index: 1000;
+}
+.modal-content {
+    background-color: white; padding: 2rem; border-radius: 8px; width: 90%; max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.image-preview {
+    width: 100%; max-height: 200px; object-fit: contain; margin-bottom: 1rem;
+    border: 1px dashed #ccc; padding: 5px; border-radius: 5px;
+}
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;
+}
+.modal-actions { margin-top: 1.5rem; display: flex; justify-content: flex-end; gap: 1rem; }
+.modal-actions .btn-primary {
+    background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;
+}
+.modal-actions button[type="button"] {
+    background-color: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;
+}
+
+
+
+@media (max-width: 992px) {
+    .wardrobe-container {
+        padding: 2rem;
+    }
+
+    .clothes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .wardrobe-container {
+        padding: 1rem;
+    }
+    
+    .wardrobe-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .wardrobe-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .filter-controls {
+        flex-direction: column;
+    }
+
+    .clothes-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 1rem;
+    }
+
+    .cloth-card img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .clothes-grid {
+        grid-template-columns: 1fr; 
+    }
+}
+
+
+[data-theme='dark'] .wardrobe-container,
+[data-theme='dark'] .notes-text {
+    background-color: var(--background-color);
+}
+
+[data-theme='dark'] .wardrobe-header {
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme='dark'] .wardrobe-header h1,
+[data-theme='dark'] .card-content h4 {
+    color: var(--text-primary);
+}
+
+[data-theme='dark'] .filter-controls,
+[data-theme='dark'] .cloth-card,
+[data-theme='dark'] .empty-wardrobe,
+[data-theme='dark'] .modal-content {
+    background-color: var(--surface-color);
+    border-color: var(--border-color);
+    box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+[data-theme='dark'] .search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: var(--primary-focus-shadow);
+}
+
+[data-theme='dark'] .filter-select {
+    background-color: var(--surface-color);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+[data-theme='dark'] .category-tag {
+    background-color: var(--primary-accent-background);
+    color: var(--primary-color);
+}
+
+[data-theme='dark'] .brand-tag,
+[data-theme='dark'] .season-tag,
+[data-theme='dark'] .colors-container {
+    color: var(--text-secondary);
+}
+
+[data-theme='dark'] .color-swatch {
+    border-color: var(--border-color);
+}
+
+[data-theme='dark'] .notes-text {
+    color: var(--text-secondary);
+    border-left-color: var(--border-color);
+}
+
+[data-theme='dark'] .action-buttons {
+    border-top-color: var(--border-color);
+}
+
+[data-theme='dark'] .icon-btn:hover {
+    background-color: var(--surface-secondary-color);
+}
+
+[data-theme='dark'] .edit-btn { color: var(--warning-color); }
+[data-theme='dark'] .delete-btn { color: var(--danger-color); }

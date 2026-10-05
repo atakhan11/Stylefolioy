@@ -1,0 +1,199 @@
+/* src/pages/admin/AdminDashboard.module.css */
+
+.dashboard {
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.summaryCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.icon {
+    font-size: 3rem;
+    padding: 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.card h3 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #333;
+}
+
+.card p {
+    margin: 0;
+    color: #777;
+    font-size: 1rem;
+}
+
+.quickNav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.navLink {
+    background: #ffffff;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navLink:hover {
+    transform: translateY(-5px);
+    color: #007bff;
+}
+
+.navIcon {
+    font-size: 2.5rem;
+}
+
+.chartsRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.chartContainer {
+    flex: 1;
+    min-width: 300px;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.activitySection {
+    margin-top: 2rem;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.activityFeed {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activityItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.activityItem:last-child {
+    border-bottom: none;
+}
+
+.activityText {
+    color: #333;
+}
+
+.activityText strong {
+    color: #007bff;
+}
+
+.activityTime {
+    font-size: 0.85rem;
+    color: #6c757d;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.shareFormContainer {
+    grid-column: 1 / -1;
+    margin-top: 2rem;
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+.shareFormContainer h2 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+.shareFormContainer form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.shareFormContainer input, .shareFormContainer textarea, .shareFormContainer button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+.shareFormContainer button {
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+    cursor: pointer;
+}
+.formMessageSuccess { color: var(--success-color); margin-top: 1rem; text-align: center; font-weight: 500;}
+.formMessageError { color: var(--danger-color); margin-top: 1rem; text-align: center; font-weight: 500;}
+
+.itemList { list-style: none; padding: 0; }
+.itemList li {
+    background: var(--surface-color);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+.itemList li.inactive { opacity: 0.6; border-left: 4px solid var(--text-secondary); }
+.itemContent { flex-grow: 1; }
+.itemContent strong { font-size: 1.1rem; color: var(--text-primary); }
+.itemContent p { margin: 0.5rem 0 0 0; color: var(--text-secondary); }
+.deleteBtn { background: none; border: none; color: var(--danger-color); cursor: pointer; font-size: 1.2rem; }

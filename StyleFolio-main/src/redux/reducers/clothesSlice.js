@@ -1,0 +1,101 @@
+// redux/reducers/clothesSlice.js
+
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { logout } from './userSlice';
+import { API_BASE_URL } from '../../config/api';
+
+const API_URL = `${API_BASE_URL}/api/clothes`;
+
+export const fetchClothes = createAsyncThunk(
+    'clothes/fetchClothes',
+    async (_, { getState, rejectWithValue }) => {
+        try {
+            const token = getState().user.token;
+            const config = {
+                headers: { Authorization: `Bearer ${token}` }
+            };
+            const response = await axios.get(API_URL, config);
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error.response.data.message);
+        }
+    }
+);
+
+export const addCloth = createAsyncThunk(
+    'clothes/addCloth',
+    async (clothData, { getState, rejectWithValue }) => {
+        try {
+            const token = getState().user.token;
+            const config = {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    Authorization: `Bearer ${token}`
+                }
+            };
+            const response = await axios.post(API_URL, clothData, config);
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error.response.data.message);
+        }
+    }
+);
+
+export const deleteCloth = createAsyncThunk(
+    'clothes/deleteCloth',
+    async (clothId, { getState, rejectWithValue }) => {
+        try {
+            const token = getState().user.token;
+            const config = {
+                headers: { Authorization: `Bearer ${token}` }
+            };
+            await axios.delete(`${API_URL}/${clothId}`, config);
+            return clothId;
+        } catch (error) {
+            return rejectWithValue(error.response.data.message);
+        }
+    }
+);
+
+const initialState = {
+    items: [],
+    status: 'idle',
+    error: null
+};
+
+const clothesSlice = createSlice({
+    name: 'clothes',
+    initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchClothes.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(fetchClothes.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.items = action.payload;
+            })
+            .addCase(fetchClothes.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.payload;
+            })
+            .addCase(addCloth.fulfilled, (state, action) => {
+                state.items.push(action.payload);
+            })
+            .addCase(deleteCloth.fulfilled, (state, action) => {
+                state.items = state.items.filter(item => item._id !== action.payload);
+            })
+            .addCase(logout, (state) => {
+                state.items = [];
+                state.status = 'idle';
+                state.error = null;
+            });
+    }
+});
+
+export const selectAllClothes = (state) => state.clothes.items;
+export const getClothesStatus = (state) => state.clothes.status;
+
+export default clothesSlice.reducer;

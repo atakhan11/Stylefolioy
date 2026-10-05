@@ -1,0 +1,96 @@
+/* src/index.css (YENİLƏNMİŞ VƏ TƏKMİLLƏŞDİRİLMİŞ VERSİYA) */
+
+/* --- 1. TEMA RƏNG DƏYİŞƏNLƏRİ --- */
+:root {
+  --background-color: #f8f9fa;
+  --surface-color: #ffffff;
+  --surface-secondary-color: #f8f9fa;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --border-color: #e9ecef;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --primary-color: #007bff;
+  --primary-hover-color: #0056b3;
+  --primary-text-color: #ffffff;
+  --primaryy-text-color: #ffffff;
+  --footer-background-color: #212529;
+  --footer-text-primary: #ffffff;
+  --footer-text-secondary: #adb5bd;
+  --footer-border-color: #343a40;
+  --navbar-background: transparent;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --success-hover-color: #218838;
+  --primary-accent-background: #e7f5ff;
+  --success-background-color: #d1e7dd; 
+  --warning-color: #fcc419;
+  --primary-focus-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  --step-number-color: #e9ecef;
+  --step-number-hover-color: #ddeeff;
+  --primary-shadow-color: rgba(0, 123, 255, 0.15);
+}
+
+[data-theme='dark'] {
+  --background-color: #121212;
+  --surface-color: #1e1e1e;
+  --surface-secondary-color: #121212;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --border-color: #333333;
+  --shadow-color: rgba(255, 255, 255, 0.05);
+  --primary-color: #58a6ff;
+  --primary-hover-color: #3e97ff;
+  --primary-text-color: #1e1e1e;
+  --primaryy-text-color: #ffffff;
+  --footer-background-color: #161618;
+  --footer-text-primary: var(--text-primary);
+  --footer-text-secondary: var(--text-secondary);
+  --footer-border-color: var(--border-color);
+  --navbar-background: var(--surface-color);
+  --success-color: #34c759;
+  --danger-color: #ff453a;
+  --success-hover-color: #34c759;
+  --primary-accent-background: rgba(88, 166, 255, 0.1);
+  --danger-background-color: rgba(255, 69, 58, 0.15);
+  --success-background-color: rgba(52, 199, 89, 0.15);
+  --warning-color: #ffd43b;
+  --primary-focus-shadow: 0 0 0 0.2rem rgba(88, 166, 255, 0.25);
+  --step-number-color: rgba(255, 255, 255, 0.08);
+  --step-number-hover-color: rgba(255, 255, 255, 0.12);
+  --primary-shadow-color: rgba(88, 166, 255, 0.2);
+}
+
+/* --- 2. QLOBAL ELEMENTLƏRƏ TƏTBİQ ETMƏK --- */
+body {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+input, textarea, select, button {
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px;
+  font-family: inherit;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid var(--primary-color);
+  border-color: transparent;
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  border: none;
+  font-weight: 600;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

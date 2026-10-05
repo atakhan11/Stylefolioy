@@ -1,0 +1,279 @@
+/* ===== ÜMUMİ DONATE SƏHİFƏSİ ===== */
+.donateContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 4rem 2rem;
+    background-color: var(--background-color);
+    min-height: calc(100vh - 80px);
+    box-sizing: border-box;
+}
+
+.donateBox {
+    background-color: var(--surface-color);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px var(--shadow-color);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.heartIcon {
+    font-size: 3rem;
+    color: var(--danger-color);
+    margin-bottom: 1rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.donateBox h2 {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.donateBox p {
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+
+/* === Məbləğ Seçimi === */
+.amountSelector {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.amountButton {
+    background-color: var(--surface-secondary-color); 
+    color: var(--text-primary); 
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.amountButton:hover:not(.selected) {
+    background-color: var(--border-color);
+    transform: translateY(-2px);
+}
+
+.amountButton.selected {
+    background-color: var(--primary-color); 
+    color: var(--primary-text-color);
+    border-color: var(--primary-color);
+}
+
+/* === Xüsusi Məbləğ Inputu === */
+.customAmount {
+    margin-bottom: 2rem;
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    max-width: 250px;
+    margin: 0 auto;
+    background-color: var(--background-color);
+    transition: all 0.2s ease;
+}
+
+.inputWrapper:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-focus-shadow);
+}
+
+.inputWrapper input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 500;
+    background: transparent;
+    color: var(--text-primary);
+}
+
+.inputWrapper span {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* === ÖDƏNİŞ FORMASI (STRIPE) === */
+.paymentForm {
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+}
+
+.cardElementWrapper {
+    border: 1px solid var(--border-color);
+    padding: 14px 12px;
+    border-radius: 8px;
+    background-color: var(--background-color);
+    margin-bottom: 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.cardElementWrapper:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-focus-shadow);
+}
+
+/* === "İanə Et" Düyməsi === */
+.donateButton {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.donateButton:hover:not(:disabled) {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--primary-shadow-color);
+}
+
+.donateButton:disabled {
+    background-color: var(--primary-color);
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.paymentMessage {
+    color: var(--danger-color);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1rem;
+    height: 1em; 
+}
+
+
+.spinner,
+.spinner:before,
+.spinner:after {
+    border-radius: 50%;
+}
+.spinner {
+    color: var(--primary-text-color);
+    font-size: 22px;
+    text-indent: -99999em;
+    margin: 0px auto;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    box-shadow: inset 0 0 0 2px;
+    transform: translateZ(0);
+}
+.spinner:before,
+.spinner:after {
+    background: var(--primary-color);
+    position: absolute;
+    content: '';
+}
+.spinner:before {
+    width: 10.4px;
+    height: 20.4px;
+    background: #007bff;
+    border-radius: 20.4px 0 0 20.4px;
+    top: -0.2px;
+    left: -0.2px;
+    transform-origin: 10.4px 10.2px;
+    animation: loading 2s infinite ease 1.5s;
+}
+.spinner:after {
+    width: 10.4px;
+    height: 10.2px;
+    background: #007bff;
+    border-radius: 0 10.2px 10.2px 0;
+    top: -0.1px;
+    left: 10.2px;
+    transform-origin: 0px 10.2px;
+    animation: loading 2s infinite ease;
+}
+
+@keyframes loading {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+@media (max-width: 576px) {
+    .donateContainer {
+        padding: 2rem 1rem;
+        align-items: flex-start;
+    }
+
+    .donateBox {
+        padding: 1.5rem;
+    }
+
+    .amountSelector {
+        gap: 0.5rem;
+    }
+
+    .amountButton {
+        padding: 0.7rem 1rem;
+    }
+
+    .donateBox p {
+        margin-bottom: 1.5rem;
+    }
+}
+
+
+
+[data-theme='dark'] .donateContainer {
+    background-color: var(--background-color);
+}
+
+[data-theme='dark'] .donateBox {
+    background-color: var(--surface-color);
+    box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+[data-theme='dark'] .heartIcon {
+    color: var(--danger-color);
+}
+
+[data-theme='dark'] .donateBox p,
+[data-theme='dark'] .inputWrapper span {
+    color: var(--text-secondary);
+}
+
+[data-theme='dark'] .amountButton {
+    background-color: var(--surface-secondary-color);
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+}
+
+[data-theme='dark'] .amountButton:hover {
+    background-color: var(--border-color);
+}
+
+[data-theme='dark'] .amountButton.selected {
+    border-color: var(--primary-color);
+}
+
+[data-theme='dark'] .inputWrapper {
+    border-color: var(--border-color);
+}
+
+[data-theme='dark'] .paymentForm {
+    border-top-color: var(--border-color);
+}

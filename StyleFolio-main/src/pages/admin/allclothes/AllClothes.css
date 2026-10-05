@@ -1,0 +1,43 @@
+
+.clothes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 1.5rem;
+}
+
+.cloth-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.cloth-card img {
+    width: 100%;
+    height: auto; 
+    aspect-ratio: 1 / 1.2; 
+    object-fit: cover;
+    display: block; 
+}
+
+.cloth-card h4, .cloth-card p, .cloth-card .action-buttons {
+    padding: 0 1rem; 
+}
+
+.cloth-card h4 {
+    margin-top: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+.cloth-card p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.cloth-card .action-buttons {
+    padding-bottom: 1rem;
+    margin-top: auto; 
+    padding-top: 0.5rem;
+}

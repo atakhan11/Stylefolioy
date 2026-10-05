@@ -1,0 +1,283 @@
+
+.calendar-page-container {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.calendar-sidebar {
+    flex: 0 0 280px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #dee2e6;
+    height: calc(100vh - 110px);
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-sidebar h3 {
+    margin-top: 0;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+}
+
+.calendar-sidebar p {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.unplanned-outfits-list {
+    overflow-y: auto;
+    flex-grow: 1;
+    margin-top: 1rem;
+}
+
+.unplanned-outfit-item {
+    background-color: #fff;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    cursor: grab;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.unplanned-outfit-item:hover {
+    background-color: #e9ecef;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.no-outfits-message {
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.calendar-main {
+    flex-grow: 1;
+}
+
+.rbc-event {
+    background-color: #007bff;
+    border: none;
+    padding: 4px 8px;
+}
+
+.rbc-event-content-custom {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.rbc-event-image {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* === MODAL PƏNCƏRƏSİ === */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+.calendar-modal {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.calendar-modal h2 {
+    margin-top: 0;
+}
+
+.modal-outfit-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 1.5rem 0;
+}
+
+.modal-outfit-images img {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #aaa;
+    cursor: pointer;
+}
+
+@media (max-width: 992px) {
+    .calendar-page-container {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    .calendar-sidebar {
+        flex: 1;
+        width: 100%;
+        height: auto;
+        box-sizing: border-box;
+    }
+
+    .unplanned-outfits-list {
+        max-height: 250px;
+    }
+}
+
+/* --- Mobil Görünüşü --- */
+@media (max-width: 576px) {
+    .calendar-page-container {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .calendar-sidebar, .calendar-main, .calendar-modal {
+        padding: 1rem;
+    }
+}
+
+
+/* --- ÜMUMİ ELEMENTLƏR --- */
+[data-theme='dark'] .calendar-sidebar {
+    background: var(--surface-color);
+    border-color: var(--border-color);
+}
+
+[data-theme='dark'] .calendar-sidebar h3 {
+    color: var(--text-primary);
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme='dark'] .calendar-sidebar p,
+[data-theme='dark'] .close-modal-btn {
+    color: var(--text-secondary);
+}
+
+[data-theme='dark'] .unplanned-outfit-item {
+    background-color: var(--surface-secondary-color);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+[data-theme='dark'] .unplanned-outfit-item:hover {
+    background-color: var(--border-color);
+}
+
+/* --- TƏQVİM KİTABXANASI (RBC) --- */
+[data-theme='dark'] .rbc-calendar {
+    background-color: var(--surface-color);
+    color: var(--text-primary);
+}
+[data-theme='dark'] .rbc-toolbar {
+    border-bottom: 1px solid var(--border-color);
+}
+[data-theme='dark'] .rbc-toolbar button {
+    color: var(--text-primary);
+}
+[data-theme='dark'] .rbc-header,
+[data-theme='dark'] .rbc-month-view,
+[data-theme='dark'] .rbc-time-view,
+[data-theme='dark'] .rbc-day-bg,
+[data-theme='dark'] .rbc-month-row {
+    border-color: var(--border-color);
+}
+[data-theme='dark'] .rbc-off-range-bg {
+    background: var(--surface-secondary-color);
+    opacity: 0.5;
+}
+[data-theme='dark'] .rbc-today {
+    background-color: var(--surface-secondary-color);
+}
+[data-theme='dark'] .rbc-event {
+    background-color: var(--primary-color);
+}
+
+/* --- MODAL PƏNCƏRƏSİ --- */
+[data-theme='dark'] .calendar-modal {
+    background-color: var(--surface-color);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    color: var(--text-primary);
+}
+
+[data-theme='dark'] .modal-outfit-images img {
+    border-color: var(--border-color);
+}
+
+[data-theme='dark'] .btn-secondary {
+    background-color: var(--text-secondary);
+    color: var(--surface-color);
+}
+[data-theme='dark'] .btn-secondary:hover {
+    background-color: var(--text-primary);
+}
+
+[data-theme='dark'] .btn-danger {
+    background-color: var(--danger-color);
+    color: var(--primary-text-color);
+}
+[data-theme='dark'] .btn-danger:hover {
+    filter: brightness(1.2);
+}
